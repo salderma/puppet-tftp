@@ -334,6 +334,11 @@ class tftp (
       audit   => $tftp::manage_audit,
     }
 
+   file { 'tftp.conf':
+      ensure => absent,
+      path   => $tftp::config_file,
+    }
+
   } else {
     include ::xinetd
 
